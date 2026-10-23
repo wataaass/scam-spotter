@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { DECK_SIZE } from "../src/deck";
 import { QUESTIONS, WORLD } from "../src/questions";
 
 // 問題データが、作品の決まり（CLAUDE.md）を守っているかを毎回確かめる。
@@ -6,9 +7,10 @@ import { QUESTIONS, WORLD } from "../src/questions";
 const allText = (q: (typeof QUESTIONS)[number]) =>
   [q.situation, q.appName, ...q.parts.map((p) => p.text), q.verify.action, q.verify.result].join("\n");
 
-describe("問題の数と配分", () => {
-  it("10問ある", () => {
-    expect(QUESTIONS).toHaveLength(10);
+describe("問題の置き場", () => {
+  it("1回ぶん（詐欺6・本物4）より多くあり、どちらも足りている", () => {
+    expect(QUESTIONS.filter((q) => q.answer === "scam").length).toBeGreaterThanOrEqual(DECK_SIZE.scam);
+    expect(QUESTIONS.filter((q) => q.answer === "real").length).toBeGreaterThanOrEqual(DECK_SIZE.real);
   });
 
   it("id が重ならない", () => {
@@ -16,14 +18,8 @@ describe("問題の数と配分", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it("本物を3〜5問まぜる（全部疑うだけで満点にならないように）", () => {
-    const real = QUESTIONS.filter((q) => q.answer === "real").length;
-    expect(real).toBeGreaterThanOrEqual(3);
-    expect(real).toBeLessThanOrEqual(5);
-  });
-
-  it("SMS・メール・チャットの3種類と、難しさ1〜3がそろっている", () => {
-    expect(new Set(QUESTIONS.map((q) => q.channel))).toEqual(new Set(["sms", "email", "chat"]));
+  it("SMS・メール・チャット・ブラウザの4種類と、難しさ1〜3がそろっている", () => {
+    expect(new Set(QUESTIONS.map((q) => q.channel))).toEqual(new Set(["sms", "email", "chat", "browser"]));
     expect(new Set(QUESTIONS.map((q) => q.level))).toEqual(new Set([1, 2, 3]));
   });
 });
@@ -61,8 +57,12 @@ describe("安全の決まり", () => {
   });
 
   it.each(QUESTIONS)("$id: ドメインは予約済みの .example だけ", (q) => {
-    const hosts = allText(q).match(/[a-z0-9-]+(?:\.[a-z0-9-]+)+/gi) ?? [];
+    const text = allText(q);
+    // URL とメールアドレスのドメイン
+    const hosts = [...text.matchAll(/(?:https?:\/\/|@)([a-z0-9.-]+)/gi)].map((m) => m[1] ?? "");
     for (const host of hosts) expect(host.toLowerCase()).toMatch(/\.example$/);
+    // URL の形でなくても、実在しうるドメインの形（〇〇.com など）を書かない
+    expect(text).not.toMatch(/[a-z0-9-]+\.(com|net|org|jp|info|top|xyz|shop)\b/i);
   });
 
   it.each(QUESTIONS)("$id: 電話番号は伏せてある", (q) => {

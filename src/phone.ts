@@ -21,9 +21,11 @@ export function renderPhone(q: Question, opts: PhoneOptions = {}): HTMLElement {
   );
 }
 
-// SMS とチャットは差出人だけを上に、メールは差出人・アドレス・件名・ロゴを上に出す
+// SMS とチャットは差出人だけを上に、メールは差出人・アドレス・件名・ロゴを上に、
+// ブラウザはアドレスバー（URL）だけを上に出す
 function isHeader(q: Question, p: Part): boolean {
   if (q.channel === "email") return ["badge", "sender", "address", "subject"].includes(p.kind);
+  if (q.channel === "browser") return p.kind === "address";
   return p.kind === "sender" || p.kind === "address";
 }
 

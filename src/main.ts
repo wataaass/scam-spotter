@@ -1,6 +1,7 @@
 import "./style.css";
 import { h, mount } from "./dom";
 import { renderPhone } from "./phone";
+import { DECK_SIZE, pickQuestions } from "./deck";
 import { QUESTIONS } from "./questions";
 import { decideType, summarize, VERIFY_LIMIT } from "./scoring";
 import { canShareFile, canvasToFile, drawResultImage } from "./share";
@@ -8,13 +9,15 @@ import type { Answer, PlayRecord, Question } from "./types";
 
 // ゲームの状態。サーバーにもブラウザの保存領域にも書かない（閉じれば消える）
 interface State {
+  /** このプレイで出す問題（置き場から選んだもの） */
+  deck: Question[];
   index: number;
   records: PlayRecord[];
   verifiesLeft: number;
 }
 
 const root = document.getElementById("app") as HTMLElement;
-let state: State = { index: 0, records: [], verifiesLeft: VERIFY_LIMIT };
+let state: State = { deck: [], index: 0, records: [], verifiesLeft: VERIFY_LIMIT };
 
 const LABEL: { [A in Answer]: string } = { real: "本物", scam: "詐欺" };
 
@@ -26,11 +29,11 @@ function showTitle(): void {
       { class: "screen title" },
       h("p", { class: "eyebrow" }, "詐欺メッセージを見抜く練習"),
       h("h1", {}, "それ、本物？"),
-      h("p", { class: "lead" }, "スマホに届いた10通のメッセージ。本物か、詐欺か。あなたなら見抜けますか？"),
+      h("p", { class: "lead" }, `届いた${DECK_SIZE.scam + DECK_SIZE.real}通のメッセージ。本物か、詐欺か。あなたなら見抜けますか？`),
       h(
         "ul",
         { class: "rules" },
-        h("li", {}, "1問ずつ、メール・SMS・SNS の画面が出ます。「本物」か「詐欺」を選んでください。"),
+        h("li", {}, `1問ずつ、メール・SMS・SNS などの画面が出ます。「本物」か「詐欺」を選んでください。問題は${QUESTIONS.length}問の中から毎回選ばれます。`),
         h("li", {}, `迷ったら「確かめる」で、公式アプリなどで確かめた結果が見られます（1回のプレイで${VERIFY_LIMIT}回まで）。`),
         h("li", {}, "答えたあと、見るべきだった場所に印が付きます。"),
       ),
@@ -45,12 +48,12 @@ function showTitle(): void {
 }
 
 function start(): void {
-  state = { index: 0, records: [], verifiesLeft: VERIFY_LIMIT };
+  state = { deck: pickQuestions(QUESTIONS), index: 0, records: [], verifiesLeft: VERIFY_LIMIT };
   showQuestion();
 }
 
 function showQuestion(): void {
-  const q = QUESTIONS[state.index];
+  const q = state.deck[state.index];
   if (!q) return showResult();
 
   let verified = false;
@@ -127,8 +130,8 @@ function progress(): HTMLElement {
   return h(
     "div",
     { class: "progress" },
-    h("span", {}, `第${n}問 / ${QUESTIONS.length}`),
-    h("progress", { attrs: { max: String(QUESTIONS.length), value: String(n), "aria-label": "進み具合" } }),
+    h("span", {}, `第${n}問 / ${state.deck.length}`),
+    h("progress", { attrs: { max: String(state.deck.length), value: String(n), "aria-label": "進み具合" } }),
   );
 }
 
@@ -142,7 +145,7 @@ function showFeedback(q: Question, choice: Answer, verified: boolean): void {
   const verifyBox = h("div", { class: "verify" });
   fillVerify(verifyBox, q);
 
-  const isLast = state.index === QUESTIONS.length - 1;
+  const isLast = state.index === state.deck.length - 1;
 
   mount(
     root,
@@ -154,7 +157,7 @@ function showFeedback(q: Question, choice: Answer, verified: boolean): void {
         "div",
         { class: `verdict ${correct ? "verdict--ok" : "verdict--ng"}`, attrs: { role: "status" } },
         h("p", { class: "verdict__head" }, correct ? "正解！" : "ざんねん…"),
-        h("p", {}, `これは「${LABEL[q.answer]}」のメッセージでした。あなたの答え：${LABEL[choice]}`),
+        h("p", {}, `正解は「${LABEL[q.answer]}」でした。あなたの答え：${LABEL[choice]}`),
       ),
       renderPhone(q, { markers }),
       h(
@@ -232,7 +235,7 @@ function showResult(): void {
     }
   });
 
-  const byId = new Map(QUESTIONS.map((q) => [q.id, q]));
+  const byId = new Map(state.deck.map((q) => [q.id, q]));
 
   mount(
     root,

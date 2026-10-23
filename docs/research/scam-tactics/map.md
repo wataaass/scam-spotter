@@ -115,8 +115,10 @@
 | 〔論文〕"An Empirical Investigation into People's Email Response Behaviors" arXiv 2108.04766 | arxiv-2108.04766-falling-for-phishing.txt（未読） | https://arxiv.org/pdf/2108.04766 | 2周・検索役D |
 | 〔論文〕"URL Inspection Tasks" arXiv 2502.20234 | arxiv-2502.20234-url-inspection.txt | https://arxiv.org/pdf/2502.20234 | 2周・検索役D |
 | 〔公式〕愛知県警察「警察官をかたる詐欺の手口」2025-04 | aichi-police-nisekeisatsu.txt | https://www.pref.aichi.jp/police/anzen/images/01nisekeisatu-kouwa.pdf | ゲームの解説の見直し・親が言葉で引き直す（口止めの手口の出典） |
+| 〔公式〕トークアプリ運営会社「その広告、ホンモノ？ SNS型投資詐欺の手口と対策」2026-02 | lycorp-2026-sns-toushi.md | https://www.lycorp.co.jp/ja/story/20260224/csm2026_investment.html | ゲームの問題を増やすとき・親が言葉で引き直す |
 
 ## 次の手がかり
+- SNS 型投資詐欺の、警察（県警）の資料の本文 — 長崎県警・徳島県の PDF は文字の層が無く読めなかった（OCR の道具が無い）
 - 佐川急便の公式の注意喚起（「SMS で集配の案内はしない」2024-12、報道のみ）
 - 銀行・カード会社の「SMS・メールでこういう連絡はしない」という公式ページ（検索役Cは見つけられず）
 - Albakry ら 2020 CHI の本文（403）と Reynolds ら 2020 の本文（証明書エラー）— URL の読み取りの正答率の細部

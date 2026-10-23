@@ -1,7 +1,7 @@
 // 問題データの形。画面（main.ts）と採点（scoring.ts）とテストが同じ形を使う。
 
 /** メッセージが届いた場所。画面の見た目を切り替える */
-export type Channel = "sms" | "email" | "chat";
+export type Channel = "sms" | "email" | "chat" | "browser";
 
 /** 正解 */
 export type Answer = "scam" | "real";
