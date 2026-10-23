@@ -11,6 +11,10 @@
 - [x] 5. 被害の規模と増減 — npa-2025-cyber-jousei.txt:1175「103 億 9,700 万円」／npa-2026-tokushu-sagi-202602.md:37「593.8億円」／antiphishing-2026-09-monthly-report.md:84「94,661 件」／antiphishing-report2026-page.md:558「6.0%」
 - [x] 6. 見抜く訓練（クイズ・ゲーム）の効果と、どこで失敗するか — sheng-2007-anti-phishing-phil.txt:20「better able to identify」／sheng-2010-who-falls-for-phish.txt:20「slightly decreased … legitimate links」、:527「avoidance strategy」／arxiv-2112.07498-phishing-in-organizations.txt:30「even more susceptible」／ho-2025-phishing-training-efficacy.txt:15「limited value」
 
+- [x] 7. URL・差出人アドレス・送信元番号で見抜けるのはどこまでか。見抜けなくなる手口の原文 — yamato-hd-nisemail.md:27「メールアドレスだけで判別することが難しい」／impress-2025-yamato-sms.md:9「公式のメールアドレスを送信元とする」／antiphishing-2026-09-monthly-report.md:109「正規ドメインのホスト名」／antiphishing-report2026-page.md:485「URLの全体像を確認しづらい」／reynolds-2020-url-confusion.md:35「average of 58%」
+- [x] 8. 本物のお知らせはどう見えるか（共通ショートコード「0005」、宅配業者や銀行が SMS・メールで何を送り何を送らないか、正規メールのロゴ表示）。ゲームの「本物」問題の根拠 — docomo-sms-displayname.md:3「0005」／soumu-000935284.txt:113「正規メッ…セージと判別可能」／yamato-hd-nisemail.md:19「お送りすることはございません」、:42「BIMI」
+- [x] 9. 「URL を確かめよ」と教えることの効果と限界（研究・公的機関の言い方の違い） — ncsc-phishing-guidance.md:69「No training package … can teach users to spot every phishing attempt」／arxiv-2502.20234-url-inspection.txt:18「inattentiveness」／antiphishing-report2026-page.md:584「送信元番号やURLを必ず確認する」
+
 ## 用語
 - スミッシング（Smishing＝SMS＋phishing）— antiphishing-2026-09-monthly-report.md:105、apwg-2025q4-trends.txt:265
 - なりすまし送信（差出人に実在のドメインを使う）— antiphishing-2026-09-monthly-report.md:115
@@ -24,6 +28,10 @@
 - 共通ショートコード「0005」（正規の SMS 用の発信番号）— antiphishing-2026-09-monthly-report.md:169
 - 埋め込み型訓練（embedded training）— arxiv-2112.07498-phishing-in-organizations.txt:30
 - クイッシング（QR コードのフィッシング）— https://arxiv.org/abs/2407.16230（未確認）
+- 共通ショートコード（0005・ドコモ独自は 0009）— docomo-sms-displayname.md:3, 7
+- BIMI（正規メールにロゴを出す）— yamato-hd-nisemail.md:42
+- identity obfuscation / URL confusion（URL で持ち主をごまかす）— reynolds-2020-url-confusion.md:35
+- ホモグラフ・IDN（似た文字のドメイン）— https://arxiv.org/pdf/1909.07539（未確認）
 
 ## 人
 - Lorrie Cranor（カーネギーメロン大学）— Anti-Phishing Phil、Who Falls for Phish?（未確認：所属は検索役の報告）
@@ -32,6 +40,11 @@
 - Daniele Lain, Kari Kostiainen, Srdjan Čapkun（ETH Zurich）— Phishing in Organizations 2022
 - Grant Ho（UC San Diego・当時）— Understanding the Efficacy of Phishing Training in Practice 2025
 - Sarah Tabassum, Cori Faklaris, Heather Lipford（UNC Charlotte）— What Drives SMiShing Susceptibility? SOUPS 2024（未確認）
+
+- Joshua Reynolds, Emily Stark, Michael Bailey ほか（イリノイ大・Google）— Measuring Identity Confusion with URLs, CHI 2020
+- Mohamed Albakry, Kami Vaniea, Maria Wolters（エディンバラ大）— What is this URL's Destination? CHI 2020（未確認）
+- Rick Wash（ウィスコンシン大）— How Experts Detect Phishing Scam Emails, CSCW 2020
+- Michelle Steves, Kristen Greene, Mary Theofanos（NIST）— Phish Scale 2020（未確認）
 
 ## 場
 - 警察庁 特殊詐欺対策ページ（SOS47）— https://www.npa.go.jp/bureau/safetylife/sos47/
@@ -45,6 +58,8 @@
 - 都道府県警・都道府県の消費生活センター（県ごとの手口ページ）— 例 鹿児島県警、埼玉県
 - 日本クレジットカード協会 啓発サイト — https://www.jcca-office.gr.jp/feature/phishing/
 - APWG Phishing Activity Trends Report — https://apwg.org/trendreports
+- 英国 NCSC — https://www.ncsc.gov.uk/guidance/phishing
+- 共通ショートコード情報サイト（携帯4社）— https://japansms.com/
 - 学会: SOUPS、IEEE S&P、CHI、USENIX Security
 
 ## 原文（sources/）
@@ -84,7 +99,28 @@
 | 〔論文〕Sheng ら 2010 "Who Falls for Phish?" CHI 測定あり | sheng-2010-who-falls-for-phish.txt | http://lorrie.cranor.org/pubs/pap1162-sheng.pdf | 1周・検索役B |
 | 〔論文〕Rahman ら "Users Really Do Respond To Smishing" arXiv 測定あり | arxiv-2212.13312-users-respond-smishing.txt | https://arxiv.org/pdf/2212.13312 | 1周・検索役B |
 
+| 〔公式〕フィッシング対策協議会「なりすまし送信メール対策について」 | antiphishing-domain-auth.md（未読） | https://www.antiphishing.jp/enterprise/domain_authentication.html | 2周・後ろへ（月次報告の参考情報） |
+| 〔公式〕金融庁 フィッシング詐欺に注意 | fsa-chuui-phishing.md（未読） | https://www.fsa.go.jp/ordinary/chuui/chuui_phishing.html | 2周・後ろへ |
+| 〔公式〕国家サイバー統括室 漏えい事案を踏まえた注意喚起 2026-10 | nco-2026-leak-alert.md（未読） | https://www.cyber.go.jp/news/20261014.html | 2周・後ろへ |
+| 〔公式〕携帯4社 共通ショートコード情報サイト | japansms-0005.md | https://japansms.com/ | 2周・後ろへ |
+| 〔公式〕NTTドコモ 共通ショートコード（2023年4月時点） | docomo-sms-displayname.md | https://www.docomo.ne.jp/service/sms/displayname/ | 2周・検索役C |
+| 〔公式〕NTTドコモ「フィッシングSMS対策の現状取組み」総務省の会議資料 2024-03 | soumu-000935284.txt | https://www.soumu.go.jp/main_content/000935284.pdf | 2周・検索役C |
+| 〔公式〕国民生活センター「通販サイト、カード会社、宅配便事業者などをかたる偽SMS・メールに警戒を！」2022-12 | kokusen-2022-nise-sms.md | https://www.kokusen.go.jp/news/data/n-20221221_2.html | 2周・検索役C |
+| 〔公式〕大阪府 よくある問合せ（宅配の偽 SMS） | osaka-faq-sms.md | https://www.pref.osaka.lg.jp/faq/o070120/faq_002107.html | 2周・検索役C |
+| 〔公式〕ヤマトホールディングス「ヤマト運輸の名前を装った迷惑メールが多発しています」 | yamato-hd-nisemail.md | https://www.yamato-hd.co.jp/important/info_181212.html | 2周・後ろへ（INTERNET Watch の記事のリンク） |
+| 〔まとめ〕INTERNET Watch ヤマトのなりすましメール・SMS | impress-2025-yamato-sms.md | https://internet.watch.impress.co.jp/docs/news/2042712.html | 2周・検索役C |
+| 〔公式〕英国 NCSC "Phishing attacks: defending your organisation" | ncsc-phishing-guidance.md | https://www.ncsc.gov.uk/guidance/phishing | 2周・検索役D |
+| 〔論文〕Reynolds ら 2020 "Measuring Identity Confusion with URLs" CHI（抄録のみ）測定あり | reynolds-2020-url-confusion.md | https://research.google/pubs/pub49166/ | 2周・検索役D |
+| 〔論文〕Wash 2020 "How Experts Detect Phishing Scam Emails" CSCW（抄録のみ） | wash-2020-experts-detect-phishing.md | https://rickwash.com/papers/journal/phishing-experts.html | 2周・検索役D |
+| 〔論文〕"An Empirical Investigation into People's Email Response Behaviors" arXiv 2108.04766 | arxiv-2108.04766-falling-for-phishing.txt（未読） | https://arxiv.org/pdf/2108.04766 | 2周・検索役D |
+| 〔論文〕"URL Inspection Tasks" arXiv 2502.20234 | arxiv-2502.20234-url-inspection.txt | https://arxiv.org/pdf/2502.20234 | 2周・検索役D |
+
 ## 次の手がかり
+- 佐川急便の公式の注意喚起（「SMS で集配の案内はしない」2024-12、報道のみ）
+- 銀行・カード会社の「SMS・メールでこういう連絡はしない」という公式ページ（検索役Cは見つけられず）
+- Albakry ら 2020 CHI の本文（403）と Reynolds ら 2020 の本文（証明書エラー）— URL の読み取りの正答率の細部
+- NIST Phish Scale（Steves ら 2020）— ゲームの問題の難しさをそろえる物差しになりうる
+- 英国の SMS SenderID Protection Registry（MEF）— 日本の 0005 と比べる
 - JC3 の原文（jc3.or.jp）— 生成 AI の偽 SMS、宅配スミッシングの注意喚起の一次情報
 - 総務省の偽基地局の注意喚起の原文
 - 国民生活センターの宅配不在通知 SMS（2020-11）の原文 — 推測 URL は別記事だった
