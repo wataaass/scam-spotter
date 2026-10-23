@@ -1,0 +1,31 @@
+{
+  "name": "scam-spotter",
+  "version": "1.0.0",
+  "description": "詐欺を見抜く力を、遊びながら鍛えるブラウザゲーム。",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wataaass/scam-spotter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/wataaass/scam-spotter/issues"
+  },
+  "homepage": "https://github.com/wataaass/scam-spotter#readme",
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "7.0.2",
+    "vite": "8.3.5",
+    "vitest": "5.0.5"
+  },
+  "private": true,
+  "type": "module"
+}
