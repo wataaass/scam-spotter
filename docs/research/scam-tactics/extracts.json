@@ -1,0 +1,99 @@
+{
+  "title": "詐欺見抜きゲームのための手口と見抜き方（抜き書き）",
+  "question": "詐欺見抜きゲーム（メール・SMS・SNS の画面を見て本物か詐欺かを選ぶ）の問題と解説を、公的機関の公表に沿って作るには、どんな手口と見抜き方の情報があるか。とくに最近の巧妙な手口は何か。",
+  "stopped": "要る主張の全部に原文の場所が付いた（1周目の終わり・2026-10-23）。ただし主張2の「懸賞・当選」は国の機関の現行ページに届かず、県のページで代えた。",
+  "claims": [
+    {
+      "claim": "1. 手口と見抜き方の知見はどこに集まっているか（場）",
+      "status": "付いた",
+      "note": "警察庁の年次報告が、フィッシングの件数をフィッシング対策協議会の集計から引き、JC3 の注意喚起を紹介している。場の一覧は map.md の「場」にある。",
+      "quotes": [
+        {"file": "npa-2025-cyber-jousei.txt", "line": 1173, "end": 1174, "text": "令和７年におけるフィッシング報告件数は、フィッシング対策協議会によれ…ば、245 万 4,297 件であり、右肩上がりの増加が続いている。", "mark": "〔公式〕警察庁 2026年3月"},
+        {"file": "npa-2025-cyber-jousei.txt", "line": 2063, "end": 2069, "text": "JC3 では、利用者がだまされて不正なスマートフォンアプリを導入すること…が原因で、個人のスマートフォンから身に覚えのない大量の SMS を配信し、", "mark": "〔公式〕警察庁 2026年3月"},
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 105, "text": "SMS から誘導されるフィッシング (スミッシング) については報告数は減少していますが、東京電力、水道局、Apple、クレジットカード会社、宅配業者をかたる文面の報告を受領しています。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09"}
+      ]
+    },
+    {
+      "claim": "2. 企画書の5題材（宅配の不在通知・銀行やカードの本人確認・懸賞当選・知人を名乗る SNS・サブスクの支払い失敗）の手口の説明",
+      "status": "付いた",
+      "note": "懸賞・当選は埼玉県（消費生活支援センター）のページ。サブスクの支払い失敗だけを名指しした注意喚起は無く、協議会の月次報告の「決済情報や契約更新」の文面が近い。",
+      "quotes": [
+        {"file": "ipa-2021-sms-tsushin.md", "line": 57, "text": "これまで多くの相談を受けていた佐川急便、日本郵便、ヤマト運輸などの宅配便業者をかたり、お荷物の宛先不明やお荷物を持ち帰ったなどの偽の文面からURLをタップさせていた偽SMSについて、新たに通信事業者をかたる偽SMSが加わり、利用料金の支払いが確認できないなどの偽の文面からURLをタップさせようとしています。", "mark": "〔公式〕IPA 2021年12月"},
+        {"file": "antiphishing-2026-isp-auth.md", "line": 88, "end": 96, "text": "【重要】VISA力一ド ご利用制限のお知らせ…【Amazon.co.jp】お支払い方法の確認が必要です — アカウント利用制限中", "mark": "〔公式〕フィッシング対策協議会 緊急情報 2026/06", "context_note": "実際に使われた件名。原文のまま「力一ド」（カタカナの「カ」と漢数字の「一」）になっている"},
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 132, "text": "メール文面は前月と同様に、注文や商品配達、返金に関する通知、決済情報や契約更新、不正利用検知、本人認証、ポイントやマイル有効期限等の通知、会員特典のお知らせ等をよそおう文面の報告が多く寄せられました。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09"},
+        {"file": "saitama-2020-tousen.md", "line": 97, "text": "SNSに有名人の賞金企画に当選したとメッセージが送られてきた。メッセージにあったURLをクリックすると受け取り手続をするよう表示され、", "mark": "〔公式〕埼玉県 2026年2月掲載"},
+        {"file": "saitama-2020-tousen.md", "line": 105, "text": "応募していない宝くじや懸賞に当選することはありません。高額賞金が当選したというメールがあっても信用しないようにしましょう。", "mark": "〔公式〕埼玉県 2026年2月掲載"},
+        {"file": "kagoshima-police-line-nottori.md", "line": 53, "text": "正規利用者のLINEのアカウントとパスワードを何らかの方法で入手してアカウントを乗っ取り、正規の利用者になりすましてLINEの「友だち」に電子マネー等の番号を送信させようとしてきます。", "mark": "〔公式〕鹿児島県警 2025年6月更新"}
+      ]
+    },
+    {
+      "claim": "3. 最近の巧妙な手口で、見た目（送り主・URL・日本語）では本物と区別しにくくなった点",
+      "status": "付いた",
+      "note": "協議会の月次報告は、AI のプロンプトが残った「不自然すぎる」メールが多い一方で、きれいな体裁のメールもあると書いている。",
+      "quotes": [
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 115, "text": "ある調査用メールアドレス宛に 9 月に届いたフィッシングメールのうち、メール差出人に実在するサービスのメールアドレス (ドメイン名) を使用した「なりすまし」フィッシングメールは約 37.8 % となり、前月よりなりすましの割合が増加しました。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09"},
+        {"file": "antiphishing-2026-isp-auth.md", "line": 84, "text": "国内ISPの認証情報（ID、メールアドレス、パスワード等）を不正利用（乗っ取り）して送信されたとみられるフィッシングメールの報告を受けています。", "mark": "〔公式〕フィッシング対策協議会 緊急情報 2026/06"},
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 133, "text": "メール文面に受信者の氏名が記載されているフィッシングメールが確認されています。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09"},
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 135, "text": "AI にメール文面の作成を指示したと思われるプロンプトがメール本文に残っていたり、メール本文に差出人のブランドや連絡先が記載されていなかったり、利用者に向けたメール文面では使わない言い回しだったり、件名や差出人の文字列が左右逆（RTL 表記）など、人が見ると「不自然すぎる」メールが多くみられました。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09"},
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 136, "text": "一方で Unicode の不可視文字や制御文字を単語の間へ埋め込んで、迷惑メールフィルター回避を試みるメールのなかには HTML で表示するときれいな体裁となっているメールも確認されており、注意が必要です。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09"},
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 138, "text": "受信者の反応（リンクへのアクセス）や対策のすり抜け状況を確認しながら、メール文面やかたるブランドを数日単位で変更しています。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09"},
+        {"file": "antiphishing-report2026-page.md", "line": 566, "text": "メッセージ本文は攻撃者が自由に記述できるものであり、文面が巧妙化しているため、正規のSMSとフィッシング詐欺のSMSを見分けることが難しくなっています。URLについては、ドメインによって見分けることが可能ですが、正規のドメイン名と似たドメイン名を用いられることが多いことから、目視で判別しやすい送信元番号によって判断するほうが有効です。", "mark": "〔公式〕フィッシング対策協議会 フィッシングレポート2026"},
+        {"file": "antiphishing-report2026-pdf.txt", "line": 636, "end": 638, "text": "個別のメールには聞き出し…た担当者自身の名前や部署名の記載があり本物の案内のように見えてしまい", "mark": "〔公式〕フィッシング対策協議会 フィッシングレポート2026（ボイスフィッシング）"},
+        {"file": "npa-2025-cyber-jousei.txt", "line": 1178, "end": 1179, "text": "フィッシングにおいては、令和元年頃からリアルタイム型フィッシングによ…り二段階認証を突破する手口が横行するなど、手口の巧妙化が見られる。", "mark": "〔公式〕警察庁 2026年3月"},
+        {"file": "npa-2025-cyber-jousei.txt", "line": 2067, "end": 2068, "text": "さらに最近では、偽 SMS の文面…の作成に生成 AI を悪用したとみられる事象を確認するなど、攻撃手法が高度…化していることについての注意喚起も行っている。", "mark": "〔公式〕警察庁 2026年3月（JC3 の注意喚起の紹介）"},
+        {"file": "scan-2025-jc3-genai-sms.md", "line": 28, "text": "JC3では、様々な内容の偽SMSが届くため、どのような人でも自身の配送サービスやカード等の利用状況に合っていると誤って認識してしまう可能性があり、", "mark": "〔まとめ〕ScanNetSecurity 2025年11月（JC3 の原文は未取得）"},
+        {"file": "npa-2025-nise-keisatsu.md", "line": 51, "end": 52, "text": "警察本部や警察署等の…代表電番号を偽装表示する手口", "mark": "〔公式〕警察庁 2025年11月", "context_note": "原文のまま「代表電番号」"},
+        {"file": "scan-2025-soumu-fake-bts.md", "line": 25, "text": "不法無線局の疑いのある無線機器（いわゆる「偽基地局」）からの携帯電話サービスへの混信事案が発生しており、携帯電話が圏外となったり、フィッシング詐欺等の不審なSMSを受信したりするなどの事象が発生しているという。", "mark": "〔まとめ〕ScanNetSecurity 2025年5月（総務省の原文は未取得）"}
+      ]
+    },
+    {
+      "claim": "4. 見た目で見抜けないとき、公的機関は利用者に何をするよう勧めているか",
+      "status": "付いた",
+      "quotes": [
+        {"file": "antiphishing-for-users.md", "line": 100, "text": "メールやSMS のリンクは開かない", "mark": "〔公式〕フィッシング対策協議会"},
+        {"file": "antiphishing-for-users.md", "line": 108, "text": "公式サイトや公式アプリからアクセスする", "mark": "〔公式〕フィッシング対策協議会"},
+        {"file": "antiphishing-for-users.md", "line": 118, "text": "入力する前に一度立ち止まり、本当に必要な手続きなのか確認する", "mark": "〔公式〕フィッシング対策協議会"},
+        {"file": "antiphishing-2026-isp-auth.md", "line": 122, "text": "もしご利用のサービスからメール等で連絡が来た場合は、メール等のリンクからではなく、すでにご利用のアプリやブラウザーのブックマークからサービスへ", "mark": "〔公式〕フィッシング対策協議会 緊急情報 2026/06"},
+        {"file": "ipa-2021-sms-tsushin.md", "line": 309, "text": "これまで見たことのないSMSやメールが届いたら、URLをタップする前に、公式サイトなど確かな情報源を使って真偽を確認してください。", "mark": "〔公式〕IPA 2021年12月"},
+        {"file": "npa-2025-nise-keisatsu.md", "line": 17, "end": 23, "text": "警察は以下の事項をすることはありません…ＳＮＳで連絡をしたり、ビデオ通話で警察手帳を見せて取調べをすること…逮捕状や捜索差押許可状などの捜査書類について、ＳＮＳで画像を送ったり、郵送したりすること", "mark": "〔公式〕警察庁 2025年11月"},
+        {"file": "fsa-2022-phishing.md", "line": 31, "text": "⇒当庁から、取引金融機関の暗証番号、インターネットバンキング等のログインID・パスワード等について、ウェブサイト上で入力を求めるようなことはありません。", "mark": "〔公式〕金融庁 2022年6月（2024年10月更新）"},
+        {"file": "kagoshima-police-line-nottori.md", "line": 63, "text": "電子マネー等の購入や銀行口座への振込等を依頼されても絶対に応じないようにLINE以外の方法で連絡してください。", "mark": "〔公式〕鹿児島県警 2025年6月更新"},
+        {"file": "kokusen-2026-saishu-kakunin.md", "line": 9, "text": "国民生活センターが、「最終確認通知書」のようなハガキを消費者に送付することは絶対にありません。", "mark": "〔公式〕国民生活センター 2026年10月"},
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 139, "text": "受信者に正規メールを見分けて読んでもらうためには、送信ドメイン認証により正規メールにのみ表示されるブランドロゴ、アイコン、マークや S/MIME による電子署名などで、利用者の判断を助けることが重要です。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09（事業者向け）"}
+      ]
+    },
+    {
+      "claim": "5. 被害の規模と増減",
+      "status": "付いた",
+      "quotes": [
+        {"file": "npa-2025-cyber-jousei.txt", "line": 1175, "end": 1177, "text": "また、令和７年におけるインターネットバンキングに係る不正送金事犯の発…生件数は 4,747 件、被害総額は約 103 億 9,700 万円となっており、フィッシン…グがその手口の約９割を占める。", "mark": "〔公式〕警察庁 2026年3月"},
+        {"file": "npa-2026-tokushu-sagi-202602.md", "line": 37, "text": "特殊詐欺全体の被害額は、593.8億円にのぼり、前年同期と比較して+269.0億円と極めて大幅な増加を記録しています。特に、SNSを入り口とする投資詐欺や、ニセ警察詐欺（警察官等をかたる手口）での被害額が突出しています。", "mark": "〔公式〕警察庁 2026年4月（2月末の暫定値）"},
+        {"file": "antiphishing-2026-09-monthly-report.md", "line": 84, "text": "2026 年 9 月にフィッシング対策協議会に寄せられたフィッシング報告件数は、前月より 12,323 件増加し、94,661 件となりました。", "mark": "〔公式〕フィッシング対策協議会 月次報告 2026/09"},
+        {"file": "antiphishing-report2026-page.md", "line": 558, "text": "全体で金銭的被害にあった方の割合は、6.0%でした。前回の調査における5.3%と比較して0.7ポイント増加しています。", "mark": "〔公式〕フィッシング対策協議会 フィッシングレポート2026（利用者アンケート）"},
+        {"file": "apwg-2025q4-trends.txt", "line": 264, "end": 265, "text": "But smishing (text message phishing) volumes continued to rise.", "ja": "しかしスミッシング（SMS のフィッシング）の量は増え続けた。", "mark": "〔まとめ〕APWG 2025年第4四半期（会員企業の発言の引用）"}
+      ]
+    },
+    {
+      "claim": "6. 見抜く訓練（クイズ・ゲーム）の効果と、どこで失敗するか",
+      "status": "付いた",
+      "note": "実験室のゲームの研究（2007・2010）は効果を報告し、企業での大規模な実地研究（2022・2025）は効果が小さい・逆効果もあると報告している。",
+      "quotes": [
+        {"file": "sheng-2007-anti-phishing-phil.txt", "line": 20, "end": 22, "text": "We found that the participants who played the game…were better able to identify fraudulent web sites compared to the…participants in other conditions.", "ja": "ゲームを遊んだ参加者は、ほかの条件の参加者より、偽のウェブサイトをよく見分けられた。", "mark": "〔論文〕Sheng ら 2007 SOUPS"},
+        {"file": "sheng-2010-who-falls-for-phish.txt", "line": 20, "end": 24, "text": "Educational materials reduced users’ tendency to enter…information into phishing webpages by 40% percent;…however, some of the educational materials we tested also…slightly decreased participants’ tendency to click on…legitimate links.", "ja": "教材は、フィッシングのページに情報を入力する傾向を 40% 減らした。ただし試した教材のいくつかは、正規のリンクをクリックする傾向も少し減らした。", "mark": "〔論文〕Sheng ら 2010 CHI"},
+        {"file": "sheng-2010-who-falls-for-phish.txt", "line": 527, "end": 529, "text": "that the participants may learn an avoidance strategy from…popular training materials rather than strategies for better…detection.", "ja": "参加者は、よりよく見抜く方法ではなく「避ける」方法を、一般的な教材から学んでいるのかもしれない。", "mark": "〔論文〕Sheng ら 2010 CHI"},
+        {"file": "arxiv-2112.07498-phishing-in-organizations.txt", "line": 30, "end": 36, "text": "Surprisingly, we find that embedded training during simulated…phishing exercises, as commonly deployed in the industry today,…does not make employees more resilient to phishing, but instead…it can have unexpected side effects that can make employees…even more susceptible to phishing.", "ja": "意外にも、模擬フィッシングの最中に教材を見せる訓練（業界で今ふつうに行われている形）は、従業員をフィッシングに強くせず、かえって引っかかりやすくする予期しない副作用がありうると分かった。", "mark": "〔論文〕Lain ら 2022 IEEE S&P"},
+        {"file": "ho-2025-phishing-training-efficacy.txt", "line": 15, "end": 19, "text": "Our results suggest that…these efforts offer limited value. First, we find no significant…relationship between whether users have recently completed…cybersecurity awareness training and their likelihood of failing…a phishing simulation.", "ja": "結果は、これらの取り組みの価値が限られていることを示す。第一に、最近セキュリティ意識の研修を終えたかどうかと、模擬フィッシングに失敗する見込みとの間に有意な関係は無かった。", "mark": "〔論文〕Ho ら 2025 IEEE S&P"},
+        {"file": "arxiv-2212.13312-users-respond-smishing.txt", "line": 34, "end": 35, "text": "Our results reveal that 16.92% of our participants had potentially…fallen for our smishing attack.", "ja": "参加者の 16.92% が、私たちのスミッシングに引っかかった可能性がある。", "mark": "〔論文〕Rahman ら（arXiv 2212.13312）"},
+        {"file": "antiphishing-report2026-page.md", "line": 550, "text": "フィッシング詐欺SMSの受信率自体はわずかに減少傾向にあるものの、URLをタップしてしまう割合は増加しており、文面の巧妙化などにより、詐欺サイトへの誘導を回避できないケースが増えている可能性があります。", "mark": "〔公式〕フィッシング対策協議会 フィッシングレポート2026（利用者アンケート）"}
+      ]
+    }
+  ],
+  "unreached": [
+    "総務省の偽基地局の注意喚起（2025年5月2日）の原文。報道（ScanNetSecurity）で代えた",
+    "JC3 の生成 AI と偽 SMS の注意喚起（10月28日）の原文。報道で代えた",
+    "国民生活センターの宅配不在通知 SMS の注意喚起（2020年11月）の原文。推測した URL は別の記事（占いサイト）だった",
+    "国民生活センターの当選詐欺の解説（消費者トラブル解説集）は公開を終えていた",
+    "Tabassum ら 2024 SOUPS「What Drives SMiShing Susceptibility?」の PDF（404）",
+    "サブスクの支払い失敗だけを名指しした公的機関の注意喚起"
+  ]
+}
