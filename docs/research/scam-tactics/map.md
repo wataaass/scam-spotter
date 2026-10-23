@@ -114,6 +114,7 @@
 | 〔論文〕Wash 2020 "How Experts Detect Phishing Scam Emails" CSCW（抄録のみ） | wash-2020-experts-detect-phishing.md | https://rickwash.com/papers/journal/phishing-experts.html | 2周・検索役D |
 | 〔論文〕"An Empirical Investigation into People's Email Response Behaviors" arXiv 2108.04766 | arxiv-2108.04766-falling-for-phishing.txt（未読） | https://arxiv.org/pdf/2108.04766 | 2周・検索役D |
 | 〔論文〕"URL Inspection Tasks" arXiv 2502.20234 | arxiv-2502.20234-url-inspection.txt | https://arxiv.org/pdf/2502.20234 | 2周・検索役D |
+| 〔公式〕愛知県警察「警察官をかたる詐欺の手口」2025-04 | aichi-police-nisekeisatsu.txt | https://www.pref.aichi.jp/police/anzen/images/01nisekeisatu-kouwa.pdf | ゲームの解説の見直し・親が言葉で引き直す（口止めの手口の出典） |
 
 ## 次の手がかり
 - 佐川急便の公式の注意喚起（「SMS で集配の案内はしない」2024-12、報道のみ）

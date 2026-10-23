@@ -30,6 +30,8 @@ const S = {
   report2026: { title: "フィッシングレポート2026", publisher: "フィッシング対策協議会 2026年6月", url: "https://www.antiphishing.jp/report/report/phishing_report2026.html" },
   saitama: { title: "「高額当選しました」「お金をあげます」詐欺メール、メッセージ等に注意", publisher: "埼玉県 2026年2月", url: "https://www.pref.saitama.lg.jp/b0304/shohisoudan/jirei/fushin/20201215.html" },
   kagoshima: { title: "不正アクセス（LINE乗っ取り）", publisher: "鹿児島県警察", url: "https://www.pref.kagoshima.jp/ja13/cyber_teguchi08.html" },
+  aichi: { title: "ニセ警察詐欺（口止めの手口の紹介）", publisher: "愛知県警察 2025年4月", url: "https://www.pref.aichi.jp/police/anzen/images/01nisekeisatu-kouwa.pdf" },
+  npaCyber: { title: "令和7年におけるサイバー空間をめぐる脅威の情勢等について", publisher: "警察庁 2026年3月", url: "https://www.npa.go.jp/publications/statistics/cybersecurity/data/R7/R07_cyber_jousei.pdf" },
   npaNise: { title: "ニセ警察詐欺に注意！", publisher: "警察庁 2025年11月", url: "https://www.npa.go.jp/bureau/safetylife/sos47/new-topics/241218/02.html" },
   reynolds: { title: "Measuring Identity Confusion with Uniform Resource Locators", publisher: "Reynolds ほか, CHI 2020", url: "https://research.google/pubs/pub49166/" },
   sheng2010: { title: "Who Falls for Phish?", publisher: "Sheng ほか, CHI 2010", url: "http://lorrie.cranor.org/pubs/pap1162-sheng.pdf" },
@@ -51,12 +53,12 @@ export const QUESTIONS: Question[] = [
     answer: "scam",
     verify: { action: "やまびこ運輸の公式アプリで、届く予定の荷物を見る", result: "お届け予定の荷物はありません。" },
     points: [
-      { target: "from", title: "個人の携帯番号から届いている", explain: "会社のお知らせが、ふつうの携帯電話番号から届くのは不自然です。" },
+      { target: "from", title: "個人の携帯番号から届いている", explain: "フィッシング対策協議会は、送信元が携帯電話番号の SMS は、固定電話番号のものより詐欺の可能性が高いと伝えています。会社のお知らせとしても不自然です。" },
       { target: "body", title: "SMS で不在連絡をしない会社をかたっている", explain: "この世界のやまびこ運輸は、実在の宅配便会社と同じく、SMS で不在連絡を送りません。宅配便の会社をかたる偽 SMS は、IPA が長く注意を呼びかけている手口です。" },
       { target: "link", title: "公式のドメインではない", explain: "公式は yamabiko-unyu.example。リンク先は ymbk-redelivery.example で、まったく別の場所です。" },
     ],
     lesson: "心当たりのない不在通知は、リンクを開かずに公式アプリで確かめる。",
-    sources: [S.ipaSms, S.yamatoHd, S.forUsers],
+    sources: [S.ipaSms, S.yamatoHd, S.report2026, S.forUsers],
   },
   {
     id: "q02-yotei-mail",
@@ -105,10 +107,10 @@ export const QUESTIONS: Question[] = [
     points: [
       { target: "address", title: "1文字だけ違うドメイン", explain: "公式は hikari-card.example。このメールは hikarl-card.example で、「i」が「l（エル）」になっています。似たドメイン名はよく使われる手口です。" },
       { target: "body", title: "期限で急がせている", explain: "「24時間以内」「無効となります」と、考える時間を奪う言葉です。カード会社をかたる偽メールの典型として、国民生活センターが例を挙げています。" },
-      { target: "ask", title: "暗証番号を入力させようとしている", explain: "カード会社や金融機関が、メールのリンク先で暗証番号の入力を求めることはありません。" },
+      { target: "ask", title: "暗証番号を入力させようとしている", explain: "暗証番号やカード番号をだまし取るのが、フィッシングの目的そのものです。金融庁も、暗証番号などをウェブサイト上で入力させることはないとしています。メールのリンク先で暗証番号を求められたら、詐欺を強く疑いましょう。" },
     ],
     lesson: "暗証番号を求められたら、それだけで詐欺を強く疑う。",
-    sources: [S.kokusen2022, S.ispAlert, S.fsa],
+    sources: [S.kokusen2022, S.ispAlert, S.report2026, S.fsa],
   },
   {
     id: "q04-ryokin-sms",
@@ -173,10 +175,10 @@ export const QUESTIONS: Question[] = [
     points: [
       { target: "sender", title: "差出人は本物の友だちのアカウント", explain: "アカウントが乗っ取られると、本物の友だちの名前とアイコンのまま届きます。差出人を見ても見抜けません。" },
       { target: "m2", title: "電子マネーの番号を送らせる", explain: "友だちになりすまして電子マネーを買わせ、番号を送らせる手口は、県警が注意を呼びかけています。番号を送った時点でお金は取られます。" },
-      { target: "m3", title: "急がせて、人に相談させない", explain: "考える時間と、相談する相手を奪うのは、詐欺に共通するやり方です。" },
+      { target: "m3", title: "急がせて、人に相談させない", explain: "「ほかの人には言わないで」と口止めして相談させないやり方は、警察官をかたる詐欺でも県警が注意を呼びかけています。口止めされたときこそ、だれかに相談しましょう。" },
     ],
     lesson: "友だちからでも、お金の頼みは別の方法で本人に確かめる。",
-    sources: [S.kagoshima],
+    sources: [S.kagoshima, S.aichi],
   },
   {
     id: "q07-shiharai-mail",
@@ -248,10 +250,10 @@ export const QUESTIONS: Question[] = [
     points: [
       { target: "sender", title: "警察は SNS で連絡しない", explain: "警察庁は「SNS で連絡をしたり、ビデオ通話で警察手帳を見せて取調べをすること」はないと明言しています。" },
       { target: "image", title: "逮捕状の画像を送ってくる", explain: "警察は逮捕状などの書類の画像を SNS で送りません。偽の逮捕状を見せて不安をあおるのが、ニセ警察詐欺の手口です。" },
-      { target: "secret", title: "お金を移させ、家族に言わせない", explain: "警察がお金を求めることはありません。人に相談させないのも詐欺の特徴です。" },
+      { target: "secret", title: "お金を移させ、家族に言わせない", explain: "警察庁は、警察が金銭を要求することは一切ないとしています。「家族にも話してはいけない」と口止めして相談させないのも、県警が紹介している手口です。" },
     ],
     lesson: "警察を名乗っても、SNS とお金の話が出たら詐欺。#9110 に相談する。",
-    sources: [S.npaNise],
+    sources: [S.npaNise, S.aichi],
   },
   {
     id: "q10-otp-sms",
@@ -269,9 +271,9 @@ export const QUESTIONS: Question[] = [
     points: [
       { target: "body", title: "自分の操作とつじつまが合う", explain: "自分でいま振込をしているので、確認コードが届くのは自然です。逆に、何もしていないのにコードが届き、だれかに聞かれたら詐欺です。" },
       { target: "from", title: "「0005」から始まる送信元で、URL が無い", explain: "共通ショートコードから届き、リンクがありません。" },
-      { target: "body", title: "「教えないで」と書いてある", explain: "本物は「職員が聞くことはない」と書いてあることが多いです。コードを他人に伝えさせるのは、二段階認証をすり抜ける詐欺の手口です。" },
+      { target: "body", title: "用途が書いてあり、自分の操作と合う", explain: "フィッシング対策協議会は事業者に、確認コードの SMS には用途を書くよう勧めています。用途が自分のしている操作と合うかを見ましょう。警察庁は、二段階認証をすり抜けるフィッシングが横行していると報告しています。コードをだれかに伝えてはいけません。" },
     ],
     lesson: "コードは自分で使うもの。だれかに聞かれたら、その時点で詐欺。",
-    sources: [S.shortCode, S.monthly, S.forUsers],
+    sources: [S.shortCode, S.monthly, S.npaCyber],
   },
 ];
